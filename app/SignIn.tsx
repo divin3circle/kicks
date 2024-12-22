@@ -25,7 +25,7 @@ const SignIn = () => {
             </Text>
           </Text>
           <TouchableOpacity
-            className="mt-8 flex items-center gap-4 flex-row justify-center border border-gray-200 rounded-full py-3 shadow-md"
+            className="mt-8 flex items-center gap-4 flex-row justify-center border border-gray-200 rounded-full py-3 shadow-md bg-white shadow-zinc-200"
             onPress={handleLogin}
           >
             <Image
