@@ -5,7 +5,9 @@ const Explore = () => {
   return (
     <View>
       <Text>Explore</Text>
-      <Text className="text-2xl text-red-600 font-bold">Home</Text>
+      <Text className="text-lg font-afacadFlux text-red-600 font-bold">
+        Home
+      </Text>
     </View>
   );
 };
