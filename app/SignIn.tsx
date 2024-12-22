@@ -24,17 +24,20 @@ const SignIn = () => {
               Perfect Pair
             </Text>
           </Text>
+          <Text className="text-lg mt-8 font-afacadFlux text-black text-center">
+            Login to Kicks with your Google account
+          </Text>
           <TouchableOpacity
-            className="mt-8 flex items-center gap-4 flex-row justify-center border border-gray-200 rounded-full py-3 shadow-md bg-white shadow-zinc-200"
+            className="mt-4 flex items-center gap-4 flex-row justify-center border border-gray-200 rounded-full py-3 shadow-md bg-white shadow-zinc-200"
             onPress={handleLogin}
           >
             <Image
               source={icons.google}
-              className="h-6 w-6"
+              className="h-5 w-5"
               resizeMode="contain"
             />
             <Text className="text-lg font-afacadFlux-bold text-black text-center">
-              Sign in with Google
+              Continue with Google
             </Text>
           </TouchableOpacity>
         </View>
