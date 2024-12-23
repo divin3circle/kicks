@@ -9,8 +9,78 @@ import {
 import React from "react";
 import icons from "@/constants/icons";
 import images from "@/constants/images";
+import { Ionicons } from "@expo/vector-icons";
+import { Link } from "expo-router";
+
+type IoniconsName = keyof typeof Ionicons.glyphMap;
+
+interface ProfileItemProps {
+  title: string;
+  iconName: IoniconsName;
+}
+
+function ProfileItem({ title, iconName }: ProfileItemProps) {
+  return (
+    <TouchableOpacity className="flex-row items-center justify-between w-full p-3">
+      <View className="flex-row items-center gap-2">
+        <Ionicons name={iconName} size={24} color="black" />
+        <Text className="text-2xl font-afacadFlux-bold text-black">
+          {title}
+        </Text>
+      </View>
+      <Ionicons
+        name="chevron-forward"
+        size={24}
+        color="black"
+        className="pt-2"
+      />
+    </TouchableOpacity>
+  );
+}
 
 const Profile = () => {
+  const profileItems = [
+    {
+      id: 1,
+      title: "My Orders",
+      iconName: "receipt",
+    },
+    {
+      id: 2,
+      title: "Payments",
+      iconName: "card",
+    },
+    {
+      id: 3,
+      title: "Profile",
+      iconName: "person",
+    },
+    {
+      id: 4,
+      title: "Notifications",
+      iconName: "notifications",
+    },
+    {
+      id: 5,
+      title: "Security",
+      iconName: "lock-closed",
+    },
+    {
+      id: 6,
+      title: "Language",
+      iconName: "language",
+    },
+    {
+      id: 7,
+      title: "Help Center",
+      iconName: "help-circle",
+    },
+    {
+      id: 8,
+      title: "Invite Friends",
+      iconName: "person-add",
+    },
+  ];
   async function handleLogout() {}
   return (
     <SafeAreaView className="h-full bg-white">
@@ -34,6 +104,41 @@ const Profile = () => {
               Sylus Abel
             </Text>
           </View>
+        </View>
+        <View className="my-2">
+          {profileItems.splice(0, 2).map((item) => (
+            <ProfileItem
+              key={item.id}
+              title={item.title}
+              iconName={item.iconName}
+            />
+          ))}
+        </View>
+        <View className="my-2">
+          {profileItems.splice(2).map((item) => (
+            <ProfileItem
+              key={item.id}
+              title={item.title}
+              iconName={item.iconName}
+            />
+          ))}
+          <TouchableOpacity className="flex-row items-center justify-between w-full p-4">
+            <View className="flex-row items-center gap-2">
+              <Ionicons name="log-out" size={24} color="black" />
+              <Text className="text-2xl font-afacadFlux-bold text-black">
+                Logout
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View className="flex-row justify-center mt-5 pb-16">
+          <Link
+            href="/"
+            className="underline font-afacadFlux-light py-3 px-5"
+            onPress={handleLogout}
+          >
+            App Version 1.0.0
+          </Link>
         </View>
       </ScrollView>
     </SafeAreaView>
