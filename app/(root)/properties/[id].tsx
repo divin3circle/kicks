@@ -1,13 +1,16 @@
-import { View, Text } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 import React from "react";
-import { useLocalSearchParams } from "expo-router";
+import { Link, useLocalSearchParams } from "expo-router";
 
 const Property = () => {
   const { id } = useLocalSearchParams();
   return (
-    <View>
+    <SafeAreaView className="h">
       <Text>Property {id}</Text>
-    </View>
+      <Link href="/" className="text-lg font-afacadFlux text-red-600 font-bold">
+        Back
+      </Link>
+    </SafeAreaView>
   );
 };
 

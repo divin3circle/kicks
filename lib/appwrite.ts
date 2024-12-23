@@ -1,6 +1,6 @@
 import { Account, Avatars, Client, OAuthProvider } from "react-native-appwrite";
 import * as Linking from "expo-linking";
-import { openAuthSessionAsync } from "expo-web-browser";
+import { dismissAuthSession, openAuthSessionAsync } from "expo-web-browser";
 
 export const config = {
   platform: "com.sylusabel.kicks",
@@ -21,12 +21,20 @@ export const account = new Account(client);
 export async function login() {
   try {
     const redirectUri = Linking.createURL("/");
-
-    const response = await account.createOAuth2Token(
-      OAuthProvider.Google,
-      redirectUri
-    );
-    if (!response) throw new Error("Create OAuth2 token failed");
+    let response;
+    try {
+      response = await account.createOAuth2Token(
+        OAuthProvider.Google,
+        redirectUri
+      );
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+    console.log(response);
+    if (!response) {
+      throw new Error("Create OAuth2 token failed");
+    }
 
     const browserResult = await openAuthSessionAsync(
       response.toString(),
