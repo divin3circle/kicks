@@ -23,15 +23,20 @@ function ProfileItem({ title, iconName }: ProfileItemProps) {
   return (
     <TouchableOpacity className="flex-row items-center justify-between w-full p-3">
       <View className="flex-row items-center gap-2">
-        <Ionicons name={iconName} size={24} color="black" />
-        <Text className="text-2xl font-afacadFlux-bold text-black">
+        <Ionicons
+          name={iconName}
+          size={24}
+          color="#000"
+          className="dark:text-white"
+        />
+        <Text className="text-2xl font-afacadFlux-bold text-black dark:text-white">
           {title}
         </Text>
       </View>
       <Ionicons
         name="chevron-forward"
         size={24}
-        color="black"
+        color="#000"
         className="pt-2"
       />
     </TouchableOpacity>
@@ -83,16 +88,16 @@ const Profile = () => {
   ];
   async function handleLogout() {}
   return (
-    <SafeAreaView className="h-full bg-white">
+    <SafeAreaView className="h-full bg-white dark:bg-black">
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerClassName="pb-38 px-7"
       >
         <View className="flex-row justify-between items-center mt-5">
-          <Text className="text-3xl font-afacadFlux-extrabold text-black">
+          <Text className="text-3xl font-afacadFlux-extrabold text-black dark:text-white">
             Profile
           </Text>
-          <Image source={icons.bell} className="size-5" />
+          <Ionicons name="notifications" size={24} color="#000" />
         </View>
         <View className="flex-row justify-center flex mt-5">
           <View className="flex flex-col items-center mt-5 relative">
@@ -124,8 +129,8 @@ const Profile = () => {
           ))}
           <TouchableOpacity className="flex-row items-center justify-between w-full p-4">
             <View className="flex-row items-center gap-2">
-              <Ionicons name="log-out" size={24} color="black" />
-              <Text className="text-2xl font-afacadFlux-bold text-black">
+              <Ionicons name="log-out" size={24} color="#ff0000" />
+              <Text className="text-2xl font-afacadFlux-bold text-danger">
                 Logout
               </Text>
             </View>
@@ -135,7 +140,7 @@ const Profile = () => {
           <Link
             href="/"
             className="underline font-afacadFlux-light py-3 px-5"
-            onPress={handleLogout}
+            onPress={() => {}}
           >
             App Version 1.0.0
           </Link>
