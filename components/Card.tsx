@@ -63,18 +63,18 @@ const Card = () => {
           }}
         >
           <Text
-            className="font-afacadFlux-bold mt-1"
+            className="font-afacadFlux-bold mt-2"
             style={{
               color: "#000",
-              fontSize: 16,
+              fontSize: 18,
             }}
             numberOfLines={1}
           >
             Jordan IV
           </Text>
-          <Ionicons name="star" size={16} color="#0061ff" />
+          {/* <Ionicons name="star" size={16} color="#0061ff" /> */}
         </View>
-        <View className="flex flex-row items-center mt-2">
+        <View className="flex flex-row items-center my-2">
           <Image
             source={images.jordan}
             style={{
