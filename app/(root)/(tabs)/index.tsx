@@ -1,3 +1,5 @@
+import Card from "@/components/Card";
+import FeaturedCard from "@/components/FeaturedCard";
 import SearchBar from "@/components/SearchBar";
 import icons from "@/constants/icons";
 import images from "@/constants/images";
@@ -7,13 +9,13 @@ import {
   View,
   SafeAreaView,
   Image,
-  TextInput,
+  ScrollView,
   TouchableOpacity,
 } from "react-native";
 export default function Index() {
   return (
     <SafeAreaView className="bg-white flex-1">
-      <View className="px-5">
+      <ScrollView className="px-5">
         <View className="flex flex-row items-center justify-between mt-5">
           <View className="flex flex-row items-center">
             <Image className="size-12 rounded-full" source={images.avatar} />
@@ -35,13 +37,15 @@ export default function Index() {
               Featured
             </Text>
             <TouchableOpacity className="">
-              <Text className="text-base font-bold font-afacadFlux-bold text-primary-300">
+              <Text className="text-base font-bold font-afacadFlux-bold text-primary-300 underline">
                 See All
               </Text>
             </TouchableOpacity>
           </View>
         </View>
-      </View>
+        <FeaturedCard />
+        <Card />
+      </ScrollView>
     </SafeAreaView>
   );
 }
