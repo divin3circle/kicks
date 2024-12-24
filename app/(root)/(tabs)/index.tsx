@@ -1,18 +1,29 @@
+import images from "@/constants/images";
+import { Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
-import { Text, View } from "react-native";
+import { Text, View, SafeAreaView, Image } from "react-native";
+import SearchBar from "@/components/SearchBar";
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text className="font-bold font-afacadFlux-bold text-5xl">
-        Welcome to Kicks
-      </Text>
-    </View>
+    <SafeAreaView className="bg-white flex-1">
+      <View className="px-5">
+        <View className="flex flex-row items-center justify-between mt-5">
+          <View className="flex flex-row items-center">
+            <Image className="size-12 rounded-full" source={images.avatar} />
+            <View className="ml-2 flex flex-col items-start justify-center">
+              <Text className="text-sm font-bold font-afacadFlux-bold">
+                Good Morning
+              </Text>
+              <Text className="text-base text-gray-400 font-afacadFlux">
+                Omutelema
+              </Text>
+            </View>
+          </View>
+          <Ionicons name="notifications" size={24} color="black" />
+        </View>
+        <SearchBar />
+      </View>
+    </SafeAreaView>
   );
 }
