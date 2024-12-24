@@ -9,16 +9,17 @@ const Card = () => {
     <TouchableOpacity
       className="flex flex-col rounded-lg"
       style={{
-        width: 150,
+        width: 160,
         backgroundColor: "#fff",
         borderRadius: 10,
+        marginTop: 10,
       }}
     >
       <Image
         source={images.jordan_iv}
         className="rounded-2xl h-80 w-60 size-full"
         style={{
-          width: 150,
+          width: 160,
           height: 150,
           resizeMode: "cover",
           borderRadius: 10,
@@ -65,7 +66,7 @@ const Card = () => {
             className="font-afacadFlux-bold mt-1"
             style={{
               color: "#000",
-              fontSize: 20,
+              fontSize: 16,
             }}
             numberOfLines={1}
           >
@@ -100,7 +101,7 @@ const Card = () => {
         }}
       >
         <Text
-          className="text-white font-afacadFlux-extrabold text-xl"
+          className="text-white font-afacadFlux-extrabold text-lg"
           style={{ color: "#0061ff" }}
         >
           KES 3,500
