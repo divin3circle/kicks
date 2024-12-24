@@ -1,4 +1,4 @@
-import { TouchableOpacity, Image, Text } from "react-native";
+import { TouchableOpacity, Image, Text, View } from "react-native";
 import React from "react";
 import images from "@/constants/images";
 
@@ -9,11 +9,19 @@ interface FeaturedCardProps {
 const FeaturedCard = ({ onPress }: FeaturedCardProps) => {
   return (
     <TouchableOpacity
-      onPress={onPress}
-      className="flex flex-col isolate relative shadow-md rounded-lg"
+      className="flex flex-col isolate relative shadow-sm rounded-lg"
+      style={{ width: 240, height: 300 }}
     >
-      <Image source={images.japan} className="rounded-2xl size-full" />
-      <Text className="text-lg font-bold font-afacadFlux-bold">Jordan IV</Text>
+      <Image
+        source={images.jordan_iv}
+        className="rounded-2xl h-80 w-60 size-full"
+        style={{
+          width: 240,
+          height: 300,
+          resizeMode: "cover",
+          borderRadius: 10,
+        }}
+      />
     </TouchableOpacity>
   );
 };

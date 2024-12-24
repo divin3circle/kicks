@@ -15,7 +15,7 @@ import {
 export default function Index() {
   return (
     <SafeAreaView className="bg-white flex-1">
-      <ScrollView className="px-5">
+      <ScrollView className="px-5" showsHorizontalScrollIndicator={false}>
         <View className="flex flex-row items-center justify-between mt-5">
           <View className="flex flex-row items-center">
             <Image className="size-12 rounded-full" source={images.avatar} />
@@ -44,6 +44,7 @@ export default function Index() {
           </View>
         </View>
         <FeaturedCard />
+        <View className="my-5"></View>
         <Card />
       </ScrollView>
     </SafeAreaView>
