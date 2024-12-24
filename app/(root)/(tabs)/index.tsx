@@ -12,10 +12,10 @@ export default function Index() {
           <View className="flex flex-row items-center">
             <Image className="size-12 rounded-full" source={images.avatar} />
             <View className="ml-2 flex flex-col items-start justify-center">
-              <Text className="text-sm font-bold font-afacadFlux-bold">
+              <Text className="text-base font-bold font-afacadFlux-bold">
                 Good Morning
               </Text>
-              <Text className="text-base text-gray-400 font-afacadFlux">
+              <Text className="text-lg text-gray-400 font-afacadFlux">
                 Omutelema
               </Text>
             </View>
