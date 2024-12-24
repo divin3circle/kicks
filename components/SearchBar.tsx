@@ -24,7 +24,7 @@ const SearchBar = () => {
     debouncedSearch(text);
   };
   return (
-    <View className="flex items-center flex-row w-full rounded-lg px-5 bg-accent-100 justify-between mt-5 py-2">
+    <View className="flex items-center flex-row w-full rounded-lg bg-accent-100 justify-between mt-5 py-2">
       <View className="flex-1 flex flex-row items-center justify-normal z-50">
         <Ionicons name="search" size={24} color="black" />
         <TextInput
