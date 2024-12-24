@@ -1,9 +1,8 @@
+import SearchBar from "@/components/SearchBar";
+import icons from "@/constants/icons";
 import images from "@/constants/images";
 import { Ionicons } from "@expo/vector-icons";
-import { Link } from "expo-router";
-import { Text, View, SafeAreaView, Image } from "react-native";
-import SearchBar from "@/components/SearchBar";
-
+import { Text, View, SafeAreaView, Image, TextInput } from "react-native";
 export default function Index() {
   return (
     <SafeAreaView className="bg-white flex-1">
@@ -22,8 +21,8 @@ export default function Index() {
           </View>
           <Ionicons name="notifications" size={24} color="black" />
         </View>
-        <SearchBar />
       </View>
+      <SearchBar />
     </SafeAreaView>
   );
 }
