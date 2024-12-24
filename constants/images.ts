@@ -24,6 +24,9 @@ import jordan_vii from "@/assets/images/jordan_xii_cardinal.jpg";
 import jordan_vi from "@/assets/images/jordan_xi_travis_scott_british_khaki.jpg";
 import nike_sb_dunk from "@/assets/images/nike_sb_dunk_low_kobe_blue.jpg";
 import reebok_club_c_revenge_vintage from "@/assets/images/reebok_club_c_revenge_vintage.jpg";
+import nike from "@/assets/images/nike.png";
+import jordan from "@/assets/images/jordan.png";
+import reebok from "@/assets/images/reebok.png";
 
 export default {
   onboarding,
@@ -52,4 +55,7 @@ export default {
   jordan_vi,
   nike_sb_dunk,
   reebok_club_c_revenge_vintage,
+  nike,
+  jordan,
+  reebok,
 };
