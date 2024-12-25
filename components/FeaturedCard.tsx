@@ -15,6 +15,7 @@ const FeaturedCard = ({ shoe, onPress }: FeaturedCardProps) => {
     <TouchableOpacity
       className="flex flex-col relative shadow-sm rounded-lg"
       style={{ width: 240, height: 300 }}
+      onPress={onPress}
     >
       <Image
         source={images.jordan_iv}
@@ -90,7 +91,7 @@ const FeaturedCard = ({ shoe, onPress }: FeaturedCardProps) => {
             className="text-white font-afacadFlux-extrabold text-xl"
             style={{ color: "#fff" }}
           >
-            KES {shoe.price}
+            KES {shoe.price.toLocaleString()}
           </Text>
           <Ionicons name="star" size={16} color="yellow" />
         </View>

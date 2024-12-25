@@ -20,6 +20,7 @@ const Card = ({ shoe, onPress }: CardProps) => {
         borderRadius: 10,
         marginTop: 10,
       }}
+      onPress={onPress}
     >
       <Image
         source={{
@@ -118,7 +119,7 @@ const Card = ({ shoe, onPress }: CardProps) => {
           className="text-white font-afacadFlux-extrabold text-lg"
           style={{ color: "#0061ff" }}
         >
-          KES {shoe.price}
+          KES {shoe.price.toLocaleString()}
         </Text>
         <Ionicons name="bookmark" size={16} color="black" />
       </View>
