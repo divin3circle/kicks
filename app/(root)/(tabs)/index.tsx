@@ -108,30 +108,20 @@ export default function Index() {
               contentContainerClassName="flex gap-5"
               ListEmptyComponent={
                 loading ? (
-                  <View
-                    className="flex items-center justify-center"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <ActivityIndicator
-                      size="large"
-                      color="#0061ff"
-                      className="mt-5"
-                    />
-                  </View>
+                  <ActivityIndicator
+                    size="large"
+                    color="#0061ff"
+                    className="mt-5"
+                  />
                 ) : (
                   <View
-                    className="flex items-center justify-center"
                     style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
+                      width: "100%",
                     }}
                   >
-                    <NoResults />
+                    <Text className="text-center text-lg font-afacadFlux mt-8 text-gray-400">
+                      No Results
+                    </Text>
                   </View>
                 )
               }
@@ -156,33 +146,9 @@ export default function Index() {
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={
           loading ? (
-            <View
-              className="flex items-center justify-center"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "200%",
-              }}
-            >
-              <ActivityIndicator
-                size="large"
-                color="#0061ff"
-                className="mt-5"
-              />
-            </View>
+            <ActivityIndicator size="large" color="#0061ff" className="mt-5" />
           ) : (
-            <View
-              className="flex items-center justify-center"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "200%",
-              }}
-            >
-              <NoResults />
-            </View>
+            <NoResults />
           )
         }
       />

@@ -5,24 +5,24 @@ import images from "@/constants/images";
 const NoResults = () => {
   return (
     <View
-      className="flex items-center my-5"
       style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        width: "100%",
       }}
     >
       <Image
         source={images.noResult}
-        className="w-11/12 h-80"
-        resizeMode="contain"
-        style={{ width: "90%", height: 200 }}
+        style={{
+          width: 150,
+          height: 150,
+          alignSelf: "center",
+          marginTop: 100,
+        }}
       />
-      <Text className="text-2xl font-afacadFlux-bold text-black text-center mt-4">
-        No results found
+      <Text className="text-center text-lg font-afacadFlux mt-8 text-gray-400">
+        No Results
       </Text>
-      <Text className="text-base font-afacadFlux text-center text-gray-400">
-        We couldn't find any results😑
+      <Text className="text-center text-lg font-afacadFlux text-gray-400">
+        We couldn't find any results for your search.
       </Text>
     </View>
   );
