@@ -3,9 +3,13 @@ import FeaturedCard from "@/components/FeaturedCard";
 import Filters from "@/components/Filters";
 import SearchBar from "@/components/SearchBar";
 import images from "@/constants/images";
+import { getLatestShoes, getShoes } from "@/lib/appwrite";
 import { useGlobalContext } from "@/lib/GlobalProvider";
+import { useAppwrite } from "@/lib/hooks/useAppwrite";
 import seed from "@/lib/seed";
 import { Ionicons } from "@expo/vector-icons";
+import { router, useLocalSearchParams } from "expo-router";
+import { useEffect } from "react";
 import {
   Text,
   View,
@@ -19,12 +23,40 @@ import {
 
 export default function Index() {
   const { user } = useGlobalContext();
+  const params = useLocalSearchParams<{ query?: string; filter?: string }>();
+
+  const { data: featuredShoes, loading: loadingFeaturedShoes } = useAppwrite({
+    fn: getLatestShoes,
+  });
+
+  const { data, loading, refetch } = useAppwrite({
+    fn: getShoes,
+    params: {
+      filter: params.filter!,
+      query: params.query!,
+      limit: 6,
+    },
+    skip: true,
+  });
+
+  useEffect(() => {
+    refetch({
+      filter: params.filter!,
+      query: params.query!,
+      limit: 6,
+    });
+  }, [params.query, params.filter]);
+
+  const handleCardPress = (id: string) => router.push(`/shoes/${id}`);
+
   return (
     <SafeAreaView className="bg-white flex-1">
-      <Button onPress={seed} title="Seed" />
+      {/* <Button onPress={seed} title="Seed" /> */}
       <FlatList
-        data={[1, 2, 3, 4]}
-        renderItem={({ item }) => <Card />}
+        data={data}
+        renderItem={({ item }) => (
+          <Card shoe={item} onPress={() => handleCardPress(item.$id)} />
+        )}
         ListHeaderComponent={
           <View className="px-5">
             <View className="flex flex-row items-center justify-between mt-5">
@@ -60,8 +92,13 @@ export default function Index() {
               </View>
             </View>
             <FlatList
-              data={[1, 2, 3]}
-              renderItem={({ item }) => <FeaturedCard />}
+              data={featuredShoes}
+              renderItem={({ item }) => (
+                <FeaturedCard
+                  shoe={item}
+                  onPress={() => handleCardPress(item.$id)}
+                />
+              )}
               horizontal
               keyExtractor={(item) => item.toString()}
               bounces={false}

@@ -45,6 +45,7 @@ const Filters = () => {
             marginBottom: 20,
           }}
           onPress={() => handleCategoryChange(category.title)}
+          key={index}
         >
           <Text
             className="font-afacadFlux text-lg"

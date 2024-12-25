@@ -3,12 +3,14 @@ import React from "react";
 import images from "@/constants/images";
 import icons from "@/constants/icons";
 import { Ionicons } from "@expo/vector-icons";
+import { Models } from "react-native-appwrite";
 
 interface FeaturedCardProps {
+  shoe: Models.Document;
   onPress?: () => void;
 }
 
-const FeaturedCard = ({ onPress }: FeaturedCardProps) => {
+const FeaturedCard = ({ shoe, onPress }: FeaturedCardProps) => {
   return (
     <TouchableOpacity
       className="flex flex-col relative shadow-sm rounded-lg"
@@ -25,7 +27,9 @@ const FeaturedCard = ({ onPress }: FeaturedCardProps) => {
         }}
       />
       <Image
-        source={images.cardGradient}
+        source={{
+          uri: shoe.image,
+        }}
         className="rounded-2xl h-80 w-60 size-full absolute bottom-0"
         style={{
           width: 240,
@@ -54,7 +58,7 @@ const FeaturedCard = ({ onPress }: FeaturedCardProps) => {
             fontSize: 12,
           }}
         >
-          4.9
+          {shoe.rating}
         </Text>
       </View>
       <View
@@ -74,7 +78,7 @@ const FeaturedCard = ({ onPress }: FeaturedCardProps) => {
           }}
           numberOfLines={1}
         >
-          Jordan IV
+          {shoe.name}
         </Text>
         <View
           className="flex flex-row items-center justify-between"
@@ -86,7 +90,7 @@ const FeaturedCard = ({ onPress }: FeaturedCardProps) => {
             className="text-white font-afacadFlux-extrabold text-xl"
             style={{ color: "#fff" }}
           >
-            KES 3,500
+            KES {shoe.price}
           </Text>
           <Ionicons name="star" size={16} color="yellow" />
         </View>
@@ -106,7 +110,7 @@ const FeaturedCard = ({ onPress }: FeaturedCardProps) => {
               fontSize: 12,
             }}
           >
-            JORDAN
+            {shoe.brand}
           </Text>
         </View>
       </View>

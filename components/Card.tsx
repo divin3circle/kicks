@@ -3,8 +3,14 @@ import React from "react";
 import images from "@/constants/images";
 import icons from "@/constants/icons";
 import Ionicons from "@expo/vector-icons/build/Ionicons";
+import { Models } from "react-native-appwrite";
 
-const Card = () => {
+interface CardProps {
+  shoe: Models.Document;
+  onPress?: () => void;
+}
+
+const Card = ({ shoe, onPress }: CardProps) => {
   return (
     <TouchableOpacity
       className="flex flex-col rounded-lg"
@@ -16,7 +22,9 @@ const Card = () => {
       }}
     >
       <Image
-        source={images.jordan_iv}
+        source={{
+          uri: shoe.image,
+        }}
         className="rounded-2xl h-80 w-60 size-full"
         style={{
           width: 160,
@@ -70,13 +78,19 @@ const Card = () => {
             }}
             numberOfLines={1}
           >
-            Jordan IV
+            {shoe.name}
           </Text>
           {/* <Ionicons name="star" size={16} color="#0061ff" /> */}
         </View>
         <View className="flex flex-row items-center my-2">
           <Image
-            source={images.jordan}
+            source={
+              shoe.brand === "Nike"
+                ? images.nike
+                : shoe.brand === "Jordan"
+                ? images.jordan
+                : images.reebok
+            }
             style={{
               width: 20,
               height: 20,
@@ -90,7 +104,7 @@ const Card = () => {
               fontSize: 12,
             }}
           >
-            JORDAN
+            {shoe.brand}
           </Text>
         </View>
       </View>
@@ -104,7 +118,7 @@ const Card = () => {
           className="text-white font-afacadFlux-extrabold text-lg"
           style={{ color: "#0061ff" }}
         >
-          KES 3,500
+          KES {shoe.price}
         </Text>
         <Ionicons name="bookmark" size={16} color="black" />
       </View>

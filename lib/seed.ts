@@ -10,24 +10,25 @@ const COLLECTIONS = {
 };
 
 const brands = [
-  "Jordan",
   "Nike",
+  "Jordan",
   "Samba",
-  "Vans",
+  "Reebok",
   "Adidas",
   "Converse",
-  "Reebok",
-  "Others",
+  "Vans",
+  "Other",
 ];
 
-const sizes = [36, 37, 38, 39, 40, 41, 42, 43, 44, 45];
+const sizes = ["36", "37", "38", "39", "40", "41", "42", "43", "44", "45"];
 const colors = [
-  "#F1F1F1",
-  "#FFC700",
-  "#000",
-  "#0061ff",
   "#fff",
+  "#000",
   "#036145",
+  "#0061ff",
+  "#fdc8c8ff",
+  "#f1f1f1",
+  "#FFC700",
   "Other",
 ];
 
@@ -140,14 +141,14 @@ async function seed() {
 
       const assignedReviews = getRandomSubset(reviews, 5, 7); // 5 to 7 reviews
       const assignedGalleries = getRandomSubset(galleries, 3, 8); // 3 to 8 galleries
+      const validColors = colors.filter((color) => color !== "Other");
 
       const availableColors = colors
+        .filter((color) => validColors.includes(color))
         .sort(() => 0.5 - Math.random())
-        .slice(0, Math.floor(Math.random() * colors.length) + 1);
+        .slice(0, 3);
 
-      const availableSizes = sizes
-        .sort(() => 0.5 - Math.random())
-        .slice(0, Math.floor(Math.random() * sizes.length) + 1);
+      const availableSizes = sizes.sort(() => 0.5 - Math.random()).slice(0, 5);
 
       const image =
         shoeImages.length - 1 >= i
@@ -174,7 +175,7 @@ async function seed() {
         }
       );
 
-      console.log(`Seeded property: ${property.name}`);
+      console.log(`Seeded shoe: ${property.name}`);
     }
 
     console.log("Data seeding completed.");
