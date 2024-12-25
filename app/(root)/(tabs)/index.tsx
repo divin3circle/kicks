@@ -55,7 +55,7 @@ export default function Index() {
     <SafeAreaView className="bg-white flex-1">
       {/* <Button onPress={seed} title="Seed" /> */}
       <FlatList
-        data={[]}
+        data={data}
         renderItem={({ item }) => (
           <Card shoe={item} onPress={() => handleCardPress(item.$id)} />
         )}
