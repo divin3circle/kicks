@@ -122,7 +122,7 @@ export async function getShoes({
   try {
     const buildQuery = [Query.orderDesc("$createdAt")];
     if (filter && filter !== "All") {
-      buildQuery.push(Query.equal("type", filter));
+      buildQuery.push(Query.equal("brand", filter));
     }
 
     if (query) {
