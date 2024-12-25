@@ -30,7 +30,7 @@ client
 
 export const avatar = new Avatars(client);
 export const account = new Account(client);
-export const databse = new Databases(client);
+export const databases = new Databases(client);
 
 export async function login() {
   try {

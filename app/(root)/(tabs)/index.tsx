@@ -4,6 +4,7 @@ import Filters from "@/components/Filters";
 import SearchBar from "@/components/SearchBar";
 import images from "@/constants/images";
 import { useGlobalContext } from "@/lib/GlobalProvider";
+import seed from "@/lib/seed";
 import { Ionicons } from "@expo/vector-icons";
 import {
   Text,
@@ -13,12 +14,14 @@ import {
   ScrollView,
   TouchableOpacity,
   FlatList,
+  Button,
 } from "react-native";
 
 export default function Index() {
   const { user } = useGlobalContext();
   return (
     <SafeAreaView className="bg-white flex-1">
+      <Button onPress={seed} title="Seed" />
       <FlatList
         data={[1, 2, 3, 4]}
         renderItem={({ item }) => <Card />}
