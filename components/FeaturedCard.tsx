@@ -18,16 +18,6 @@ const FeaturedCard = ({ shoe, onPress }: FeaturedCardProps) => {
       onPress={onPress}
     >
       <Image
-        source={images.jordan_iv}
-        className="rounded-2xl h-80 w-60 size-full"
-        style={{
-          width: 240,
-          height: 300,
-          resizeMode: "cover",
-          borderRadius: 10,
-        }}
-      />
-      <Image
         source={{
           uri: shoe.image,
         }}

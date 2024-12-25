@@ -3,11 +3,9 @@ import FeaturedCard from "@/components/FeaturedCard";
 import Filters from "@/components/Filters";
 import NoResults from "@/components/NoResults";
 import SearchBar from "@/components/SearchBar";
-import images from "@/constants/images";
 import { getLatestShoes, getShoes } from "@/lib/appwrite";
 import { useGlobalContext } from "@/lib/GlobalProvider";
 import { useAppwrite } from "@/lib/hooks/useAppwrite";
-import seed from "@/lib/seed";
 import { Ionicons } from "@expo/vector-icons";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect } from "react";
@@ -16,10 +14,8 @@ import {
   View,
   SafeAreaView,
   Image,
-  ScrollView,
   TouchableOpacity,
   FlatList,
-  Button,
   ActivityIndicator,
 } from "react-native";
 
