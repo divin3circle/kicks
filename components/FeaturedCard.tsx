@@ -59,7 +59,7 @@ const FeaturedCard = ({ shoe, onPress }: FeaturedCardProps) => {
             fontSize: 12,
           }}
         >
-          {shoe.rating}
+          {shoe.rating.toFixed(1)}
         </Text>
       </View>
       <View

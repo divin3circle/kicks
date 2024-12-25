@@ -1,6 +1,7 @@
 import Card from "@/components/Card";
 import FeaturedCard from "@/components/FeaturedCard";
 import Filters from "@/components/Filters";
+import NoResults from "@/components/NoResults";
 import SearchBar from "@/components/SearchBar";
 import images from "@/constants/images";
 import { getLatestShoes, getShoes } from "@/lib/appwrite";
@@ -19,6 +20,7 @@ import {
   TouchableOpacity,
   FlatList,
   Button,
+  ActivityIndicator,
 } from "react-native";
 
 export default function Index() {
@@ -53,7 +55,7 @@ export default function Index() {
     <SafeAreaView className="bg-white flex-1">
       {/* <Button onPress={seed} title="Seed" /> */}
       <FlatList
-        data={data}
+        data={[]}
         renderItem={({ item }) => (
           <Card shoe={item} onPress={() => handleCardPress(item.$id)} />
         )}
@@ -92,7 +94,7 @@ export default function Index() {
               </View>
             </View>
             <FlatList
-              data={featuredShoes}
+              data={[]}
               renderItem={({ item }) => (
                 <FeaturedCard
                   shoe={item}
@@ -100,10 +102,39 @@ export default function Index() {
                 />
               )}
               horizontal
-              keyExtractor={(item) => item.toString()}
+              keyExtractor={(item) => item.$createdAt}
               bounces={false}
               showsHorizontalScrollIndicator={false}
               contentContainerClassName="flex gap-5"
+              ListEmptyComponent={
+                loading ? (
+                  <View
+                    className="flex items-center justify-center"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <ActivityIndicator
+                      size="large"
+                      color="#0061ff"
+                      className="mt-5"
+                    />
+                  </View>
+                ) : (
+                  <View
+                    className="flex items-center justify-center"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <NoResults />
+                  </View>
+                )
+              }
             />
             <View className="flex flex-row items-center justify-between mt-5 mb-2">
               <Text className="text-xl font-bold font-afacadFlux-bold">
@@ -118,11 +149,42 @@ export default function Index() {
             <Filters />
           </View>
         }
-        keyExtractor={(item) => item.toString()}
+        keyExtractor={(item) => item.$createdAt}
         numColumns={2}
         contentContainerClassName="pb-32"
         columnWrapperClassName="flex gap-5 px-5"
         showsVerticalScrollIndicator={false}
+        ListEmptyComponent={
+          loading ? (
+            <View
+              className="flex items-center justify-center"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "200%",
+              }}
+            >
+              <ActivityIndicator
+                size="large"
+                color="#0061ff"
+                className="mt-5"
+              />
+            </View>
+          ) : (
+            <View
+              className="flex items-center justify-center"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "200%",
+              }}
+            >
+              <NoResults />
+            </View>
+          )
+        }
       />
     </SafeAreaView>
   );

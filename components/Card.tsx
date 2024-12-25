@@ -54,7 +54,7 @@ const Card = ({ shoe, onPress }: CardProps) => {
             fontSize: 12,
           }}
         >
-          4.9
+          {shoe.rating.toFixed(1)}
         </Text>
       </View>
       <View
