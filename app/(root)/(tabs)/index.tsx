@@ -94,7 +94,7 @@ export default function Index() {
               </View>
             </View>
             <FlatList
-              data={[]}
+              data={featuredShoes}
               renderItem={({ item }) => (
                 <FeaturedCard
                   shoe={item}
