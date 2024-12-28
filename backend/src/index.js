@@ -5,12 +5,13 @@ const app = express();
 const PORT = 8000;
 const SAFARICOM_SANBOX_URL_AUTH =
   "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
+const BASIC_AUTH =
+  "Basic WVhlQkVWdnJ1bzVidlpYYWNYSzloQTYzbFpVNXI0ZzdBR2ZWQ0IyZmhvZ2pIYlhqOndNajlMZEdSejk3V0RFNnVsWjFkMGdLV2FZbDdVdHk2NFdVNVpEQWpnUW1HcE5OSVNNM3dxUEFCN0F1NVFZQjA=";
 
 app.get("/authorize", (req, res) => {
   req = unirest("GET", SAFARICOM_SANBOX_URL_AUTH)
     .headers({
-      Authorization:
-        "Basic WVhlQkVWdnJ1bzVidlpYYWNYSzloQTYzbFpVNXI0ZzdBR2ZWQ0IyZmhvZ2pIYlhqOndNajlMZEdSejk3V0RFNnVsWjFkMGdLV2FZbDdVdHk2NFdVNVpEQWpnUW1HcE5OSVNNM3dxUEFCN0F1NVFZQjA=",
+      Authorization: BASIC_AUTH,
     })
     .send()
     .end((res) => {
